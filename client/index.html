@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Visitor Guestbook</title>
-</head>
-<body>
-    <h1>Welcome</h1>
-</body>
+    <script src="./script.js" defer type="module"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="form-container">
+      <h1>Welcome to Visitor Guestbook</h1>
+      <h2>Please leave a message</h2>
+      <form id="form">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" placeholder="Enter your username" required/>
+        <label for="message">Your message:</label>
+        <textarea name="message" id="message" cols="30" rows="5" placeholder="Type a message" required
+        ></textarea>
+        <input type="submit" value="Send message" id="send"/>
+
+      </form>
+    </div>
+
+    <div id="messages-container">
+      <h2>View messages</h2>
+    </div>
+  </body>
 </html>

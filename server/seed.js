@@ -15,3 +15,4 @@ INSERT INTO guestbook (name, message) VALUES (?, ?)
 postMessage.run("Alan", "im delighted to be here!");
 postMessage.run("Dave", "This is my 3rd time here today");
 postMessage.run("Peter", "Hello everyone");
+
