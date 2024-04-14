@@ -24,12 +24,11 @@ app.post("/message", function (req, res) {
   newMessage.run(req.body.name, req.body.message);
 });
 
-// app.delete("/delete", function (req, res){
-//     const deleteMessage = db.prepare(`DELETE FROM guestbook WHERE (id) VALUE (?)
-//     `);
-//     deleteMessage.run(req.body.id);
+app.delete("/delete", function (req, res){
+    const deleteMessage = db.prepare(`DELETE FROM guestbook WHERE id = ?`);
+    deleteMessage.run(req.body.id);
     
-// });
+});
 
 app.listen(8080, function () {
   console.log("App is running on port 8080");

@@ -1,7 +1,5 @@
 const form = document.getElementById("form");
 
-
-
 function sendForm(event) {
     event.preventDefault();
     const username = event.target.username.value;
@@ -11,7 +9,7 @@ function sendForm(event) {
     console.log(message);
     
 
-fetch("http://localhost:8080/message",
+fetch("https://week-04-project-2.onrender.com//message",      
 {
     method: "POST",
     body: JSON.stringify({name: username, message: message}),
@@ -23,20 +21,16 @@ fetch("http://localhost:8080/message",
 
 form.addEventListener("submit", sendForm);
 
-
-
-
-
-
 const displayMessages = document.getElementById("messages-container");
 
 // below to get the messages from the database 
 
 async function getMessages() {
-    const response = await fetch("http://localhost:8080/messages");
+    const response = await fetch("https://week-04-project-2.onrender.com/messages");  // replaced "http://localhost:8080/message" with the render url
     const messages = await response.json();
-// console.log(messages);
-    // now displaying them onto the page in the
+
+    // now displaying them onto the page on the page
+
     messages.forEach(function (message) {
         const h3 = document.createElement("h3");
         const p = document.createElement("p");
@@ -48,11 +42,28 @@ async function getMessages() {
 
         displayMessages.appendChild(h3);
         displayMessages.appendChild(p);
-        displayMessages.appendChild(del)
-        // del.addEventListener("click" (run this function))
+        displayMessages.appendChild(del);
+        del.addEventListener("click", function () {deleteMsg(message.id)});
+        
     });
 }
+// a function to delete msg by id
+
+function deleteMsg(id) {
+   
+fetch("https://week-04-project-2.onrender.com/delete",
+{
+    method: "DELETE",
+    body: JSON.stringify({id: id}),
+    headers: {
+        "Content-Type": "application/json"
+    },
+})
+};
 
 getMessages();
+
+
+
 
 
