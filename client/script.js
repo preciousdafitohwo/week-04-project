@@ -9,7 +9,7 @@ function sendForm(event) {
     console.log(message);
     
 
-fetch("https://week-04-project-2.onrender.com//message",      
+fetch("https://week-04-project-2.onrender.com/message",      
 {
     method: "POST",
     body: JSON.stringify({name: username, message: message}),
