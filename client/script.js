@@ -51,7 +51,7 @@ async function getMessages() {
 
 function deleteMsg(id) {
    
-fetch("https://week-04-project-2.onrender.com/delete",
+fetch("https://week-04-project-2.onrender.com/delete",   //"http://localhost:8080/messages"
 {
     method: "DELETE",
     body: JSON.stringify({id: id}),
